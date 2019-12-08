@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <import resource="services1.xml"/>
+    <alias name="myData" alias="data"/>
+    <bean id="myBean" class="com.kenny.app.beans.MyBean">
+        <property name="content" value="hello world"/>
+        <constructor-arg index="0" value="11" type="java.lang.Integer"/>
+        <constructor-arg index="1" value="hello constructor" type="java.lang.String"/>
+        <property name="number" value="10"/>
+        <property name="myData" ref="data"/>
+        <replaced-method name="getContent" replacer="replaceMethod"/>
+    </bean>
+    <bean id="replaceMethod" class="com.kenny.app.beans.ReplaceMethod"/>
+
+    <bean id="myData" class="com.kenny.app.beans.MyData">
+        <property name="data1" value="10"/>
+        <property name="data2" value="hello, data"/>
+    </bean>
+</beans>

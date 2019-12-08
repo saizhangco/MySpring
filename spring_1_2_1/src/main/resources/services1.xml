@@ -1,0 +1,16 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+    <alias name="myData1" alias="data1"/>
+    <bean id="myBean1" class="com.kenny.app.beans.MyBean">
+        <property name="content" value="hello world"/>
+        <property name="number" value="10"/>
+        <property name="myData" ref="data1"/>
+    </bean>
+
+    <bean id="myData1" class="com.kenny.app.beans.MyData">
+        <property name="data1" value="10"/>
+        <property name="data2" value="hello, data"/>
+    </bean>
+
+</beans>
